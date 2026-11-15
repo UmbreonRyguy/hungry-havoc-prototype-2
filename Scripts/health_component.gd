@@ -13,6 +13,6 @@ func _ready() -> void:
 
 
 func process_hit(area: Area2D) -> void:
-	if area is Hurtbox:
+	if area is Attackbox:
 		health -= area.damage
 		damage_taken.emit(area.damage, health, area)
