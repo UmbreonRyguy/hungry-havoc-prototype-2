@@ -19,6 +19,9 @@ collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_htpsb")
 
+[node name="BulletSpawnPoint" type="Node2D" parent="." unique_id=497808610]
+position = Vector2(12, 0)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326747811]
 shape = SubResource("CircleShape2D_dfkqw")
 

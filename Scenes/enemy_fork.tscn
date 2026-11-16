@@ -8,7 +8,7 @@
 [node name="EnemyFork" type="Area2D" unique_id=1358513238]
 z_index = 2
 collision_layer = 4
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_036ia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19352356]
