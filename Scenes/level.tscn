@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d4nboreqkvju4" path="res://Scenes/enemy.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://fjvaj5uw6ird" path="res://Scenes/pizza_projectile.tscn" id="4_81xng"]
 [ext_resource type="PackedScene" uid="uid://8f713qawq7sg" path="res://Scenes/enemy_ranged.tscn" id="5_wqkje"]
+[ext_resource type="PackedScene" uid="uid://cxcs8owno37r7" path="res://Scenes/enemy_fork.tscn" id="6_0f350"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5f4k"]
 texture = ExtResource("1_tumq0")
@@ -83,15 +84,18 @@ tile_map_data = PackedByteArray("AAAFAAQAAAACAAMAAAAHAAQAAAAFAAMAAAAHAAUAAAAFAAQ
 tile_set = SubResource("TileSet_51e2h")
 
 [node name="Player" parent="." unique_id=127932407 instance=ExtResource("2_k5f4k")]
-position = Vector2(64, 80)
+position = Vector2(133, 79)
 
 [node name="Enemy" parent="." unique_id=1042307464 instance=ExtResource("3_6phgx")]
 position = Vector2(64, 32)
 
 [node name="PizzaProjectile" parent="." unique_id=1358513238 instance=ExtResource("4_81xng")]
-position = Vector2(64, 208)
+position = Vector2(16, 58)
 rotation = -1.5707964
 bullet_speed = 140.0
 
 [node name="EnemyRanged" parent="." unique_id=128781936 instance=ExtResource("5_wqkje")]
 position = Vector2(234, 152)
+
+[node name="EnemyFork" parent="." unique_id=1558449294 instance=ExtResource("6_0f350")]
+position = Vector2(44, 136)
