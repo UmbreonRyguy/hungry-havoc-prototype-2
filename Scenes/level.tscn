@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dburpfsjue84o" path="res://Scenes/player.tscn" id="2_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://d4nboreqkvju4" path="res://Scenes/enemy.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://fjvaj5uw6ird" path="res://Scenes/pizza_projectile.tscn" id="4_81xng"]
+[ext_resource type="PackedScene" uid="uid://8f713qawq7sg" path="res://Scenes/enemy_ranged.tscn" id="5_wqkje"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5f4k"]
 texture = ExtResource("1_tumq0")
@@ -91,3 +92,6 @@ position = Vector2(64, 32)
 position = Vector2(64, 208)
 rotation = -1.5707964
 bullet_speed = 140.0
+
+[node name="EnemyRanged" parent="." unique_id=128781936 instance=ExtResource("5_wqkje")]
+position = Vector2(234, 152)
