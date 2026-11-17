@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dburpfsjue84o" path="res://Scenes/player.tscn" id="2_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://d4nboreqkvju4" path="res://Scenes/enemy.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://fjvaj5uw6ird" path="res://Scenes/pizza_projectile.tscn" id="4_81xng"]
+[ext_resource type="PackedScene" uid="uid://bglnisob0e808" path="res://Scenes/supply_box.tscn" id="5_wqkje"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5f4k"]
 texture = ExtResource("1_tumq0")
@@ -91,3 +92,8 @@ position = Vector2(64, 32)
 position = Vector2(64, 208)
 rotation = -1.5707964
 bullet_speed = 140.0
+
+[node name="Area2D" parent="." unique_id=438471102 instance=ExtResource("5_wqkje")]
+position = Vector2(201, 27)
+collision_layer = 4
+collision_mask = 7
