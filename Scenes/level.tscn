@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://d26oslcjuoy8t" path="res://Assets/Interiors_free_16x16.png" id="5_bvt00"]
 [ext_resource type="PackedScene" uid="uid://bsfmepmhabdh1" path="res://Scenes/crate.tscn" id="9_bvt00"]
 [ext_resource type="PackedScene" uid="uid://bglnisob0e808" path="res://Scenes/supply_box.tscn" id="5_wqkje"]
+[ext_resource type="PackedScene" uid="uid://8f713qawq7sg" path="res://Scenes/enemy_ranged.tscn" id="5_wqkje"]
+[ext_resource type="PackedScene" uid="uid://cxcs8owno37r7" path="res://Scenes/enemy_fork.tscn" id="6_0f350"]
+[ext_resource type="Script" uid="uid://c6kcxxyegqkq" path="res://enemy_ranged.gd" id="6_8c0lf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5f4k"]
 texture = ExtResource("1_tumq0")
@@ -2598,7 +2601,7 @@ tile_map_data = PackedByteArray("AAAGAAEAAAAHACEAAAAGAAIAAAAHACIAAAAHAAEAAAAKACE
 tile_set = SubResource("TileSet_6kmws")
 
 [node name="Player" parent="." unique_id=127932407 instance=ExtResource("2_k5f4k")]
-position = Vector2(64, 80)
+position = Vector2(133, 79)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1331016377]
 
@@ -2606,7 +2609,7 @@ position = Vector2(64, 80)
 position = Vector2(0, 47)
 
 [node name="PizzaProjectile" parent="." unique_id=1358513238 instance=ExtResource("4_81xng")]
-position = Vector2(64, 208)
+position = Vector2(16, 58)
 rotation = -1.5707964
 bullet_speed = 140.0
 
@@ -2641,3 +2644,11 @@ collision_mask = 7
 position = Vector2(231, 107)
 collision_layer = 4
 collision_mask = 7
+[node name="EnemyRanged" parent="." unique_id=128781936 instance=ExtResource("5_wqkje")]
+position = Vector2(234, 152)
+script = ExtResource("6_8c0lf")
+fire_rate = 1.0
+
+[node name="EnemyFork" parent="." unique_id=1558449294 instance=ExtResource("6_0f350")]
+position = Vector2(47, 79)
+collision_mask = 2

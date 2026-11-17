@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://8f713qawq7sg"]
+
+[ext_resource type="Script" uid="uid://b1h4sueoncgq1" path="res://Scripts/enemy.gd" id="1_htpsb"]
+[ext_resource type="Texture2D" uid="uid://0hfo7li12wrv" path="res://Assets/enemy_ranged.png" id="2_kowwf"]
+[ext_resource type="PackedScene" uid="uid://djr0836ascpkb" path="res://Scenes/health_component.tscn" id="2_t233f"]
+[ext_resource type="Script" uid="uid://4wlvoh7b2ibl" path="res://Scripts/attackbox.gd" id="3_kowwf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dfkqw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17rro"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71h6k"]
+radius = 13.0
+
+[node name="EnemyRanged" type="CharacterBody2D" unique_id=1042307464]
+z_index = 1
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_htpsb")
+
+[node name="BulletSpawnPoint" type="Node2D" parent="." unique_id=497808610]
+position = Vector2(12, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326747811]
+shape = SubResource("CircleShape2D_dfkqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1004093366]
+position = Vector2(2.3841858e-07, -1)
+scale = Vector2(0.023246547, 0.017044649)
+texture = ExtResource("2_kowwf")
+
+[node name="HealthComponent" parent="." unique_id=1554534961 node_paths=PackedStringArray("hitbox") instance=ExtResource("2_t233f")]
+hitbox = NodePath("../Hitbox")
+health = 4
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1519313762]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1977133008]
+shape = SubResource("CircleShape2D_17rro")
+
+[node name="Attackbox" type="Area2D" parent="." unique_id=1812515979]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_kowwf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attackbox" unique_id=1127025589]
+shape = SubResource("CircleShape2D_71h6k")
+
+[connection signal="damage_taken" from="HealthComponent" to="." method="_on_damage_taken"]
