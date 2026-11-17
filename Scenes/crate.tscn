@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bsfmepmhabdh1"]
+
+[ext_resource type="Script" uid="uid://d2a7uswttu1p5" path="res://Scenes/crate.gd" id="1_i4r3v"]
+[ext_resource type="Texture2D" uid="uid://carfklw2cvq7k" path="res://Assets/Crate.png" id="1_wp72f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kmws"]
+size = Vector2(16, 16)
+
+[node name="Crate" type="Area2D" unique_id=1486057382]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_i4r3v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1169445217]
+texture = ExtResource("1_wp72f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1022207334]
+shape = SubResource("RectangleShape2D_6kmws")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
