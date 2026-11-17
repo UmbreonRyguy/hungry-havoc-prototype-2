@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bjhffotkxye7l" path="res://Assets/Room_Builder_free_16x16.png" id="4_754fn"]
 [ext_resource type="Texture2D" uid="uid://d26oslcjuoy8t" path="res://Assets/Interiors_free_16x16.png" id="5_bvt00"]
 [ext_resource type="PackedScene" uid="uid://bsfmepmhabdh1" path="res://Scenes/crate.tscn" id="9_bvt00"]
+[ext_resource type="PackedScene" uid="uid://bglnisob0e808" path="res://Scenes/supply_box.tscn" id="5_wqkje"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5f4k"]
 texture = ExtResource("1_tumq0")
@@ -2626,3 +2627,17 @@ position = Vector2(-816, 502)
 
 [node name="Crate6" parent="." unique_id=1996845915 instance=ExtResource("9_bvt00")]
 position = Vector2(-69, 97)
+[node name="SupplyBox" parent="." unique_id=438471102 instance=ExtResource("5_wqkje")]
+position = Vector2(38, 165)
+collision_layer = 4
+collision_mask = 7
+
+[node name="SupplyBox2" parent="." unique_id=145210551 instance=ExtResource("5_wqkje")]
+position = Vector2(20, 52)
+collision_layer = 4
+collision_mask = 7
+
+[node name="SupplyBox3" parent="." unique_id=315116151 instance=ExtResource("5_wqkje")]
+position = Vector2(231, 107)
+collision_layer = 4
+collision_mask = 7
