@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b1h4sueoncgq1" path="res://Scripts/enemy.gd" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://4wlvoh7b2ibl" path="res://Scripts/attackbox.gd" id="2_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://dqxbbtp5ksop2" path="res://Assets/meeleEnemyOne.png" id="2_287tu"]
 [ext_resource type="PackedScene" uid="uid://djr0836ascpkb" path="res://Scenes/health_component.tscn" id="2_afpow"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfkqw"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ne65n"]
-size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17rro"]
 
@@ -25,7 +23,7 @@ script = ExtResource("1_hghv2")
 shape = SubResource("CircleShape2D_dfkqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1004093366]
-texture = SubResource("PlaceholderTexture2D_ne65n")
+texture = ExtResource("2_287tu")
 
 [node name="HealthComponent" parent="." unique_id=1554534961 node_paths=PackedStringArray("hitbox") instance=ExtResource("2_afpow")]
 hitbox = NodePath("../Hitbox")
