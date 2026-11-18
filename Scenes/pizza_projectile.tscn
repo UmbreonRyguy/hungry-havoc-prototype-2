@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fjvaj5uw6ird"]
 
 [ext_resource type="Texture2D" uid="uid://d2bcfgrmfmg15" path="res://Assets/projectile_pizza.png" id="1_1shd6"]
-[ext_resource type="Script" uid="uid://cudlu31qpft4i" path="res://Scenes/bulletbox.gd" id="1_f7f5i"]
+[ext_resource type="Script" uid="uid://cudlu31qpft4i" path="res://Scripts/bulletbox.gd" id="1_f7f5i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfkqw"]
 
