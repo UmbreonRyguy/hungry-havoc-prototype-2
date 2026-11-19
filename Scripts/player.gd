@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed: float = 80
+## Bullets per second
+@export var firing_speed: float = 2.5
 @export var knockback_strength: float = 120
 @export var knockback_damping: float = 240
 
@@ -12,11 +14,16 @@ var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
 
 var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
+var firing_cooldown: float = 0
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Attack"):
+func _process(delta: float) -> void:
+	firing_cooldown -= delta
+	
+	if firing_cooldown <= 0 && Input.is_action_pressed("Attack"):
 		attack()
+		# Reset cooldown
+		firing_cooldown = 1 / firing_speed
 
 
 func attack() -> void:
