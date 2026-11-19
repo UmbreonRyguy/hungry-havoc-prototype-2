@@ -5,14 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dburpfsjue84o" path="res://Scenes/player.tscn" id="2_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://d4nboreqkvju4" path="res://Scenes/enemy.tscn" id="3_6phgx"]
 [ext_resource type="Texture2D" uid="uid://dwfixeca5scik" path="res://Assets/wallPlaceholder.png" id="3_8c0lf"]
-[ext_resource type="PackedScene" uid="uid://fjvaj5uw6ird" path="res://Scenes/pizza_projectile.tscn" id="4_81xng"]
 [ext_resource type="Texture2D" uid="uid://bjhffotkxye7l" path="res://Assets/Room_Builder_free_16x16.png" id="4_754fn"]
 [ext_resource type="Texture2D" uid="uid://d26oslcjuoy8t" path="res://Assets/Interiors_free_16x16.png" id="5_bvt00"]
 [ext_resource type="PackedScene" uid="uid://8f713qawq7sg" path="res://Scenes/enemy_ranged.tscn" id="5_wqkje"]
-[ext_resource type="PackedScene" uid="uid://cxcs8owno37r7" path="res://Scenes/enemy_fork.tscn" id="6_0f350"]
-[ext_resource type="Script" uid="uid://c6kcxxyegqkq" path="res://enemy_ranged.gd" id="6_8c0lf"]
 [ext_resource type="PackedScene" uid="uid://bsfmepmhabdh1" path="res://Scenes/crate.tscn" id="9_bvt00"]
-[ext_resource type="Texture2D" uid="uid://d2bcfgrmfmg15" path="res://Assets/projectile_pizza.png" id="13_pa6b8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pa6b8"]
 texture = ExtResource("4_754fn")
@@ -2900,28 +2896,23 @@ tile_map_data = PackedByteArray("AAAGAAEAAAAHACEAAAAGAAIAAAAHACIAAAAHAAEAAAAKACE
 tile_set = SubResource("TileSet_6kmws")
 
 [node name="Player" parent="." unique_id=127932407 instance=ExtResource("2_k5f4k")]
+unique_name_in_owner = true
 position = Vector2(133, 79)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1331016377]
 
-[node name="Enemy" parent="." unique_id=1042307464 instance=ExtResource("3_6phgx")]
-position = Vector2(-84, 173)
+[node name="Crates" type="Node2D" parent="." unique_id=1518047796]
 
-[node name="PizzaProjectile" parent="." unique_id=1358513238 instance=ExtResource("4_81xng")]
-position = Vector2(64, -13)
-rotation = -1.5707964
-bullet_speed = 140.0
-
-[node name="Crate" parent="." unique_id=1486057382 instance=ExtResource("9_bvt00")]
+[node name="Crate" parent="Crates" unique_id=1486057382 instance=ExtResource("9_bvt00")]
 position = Vector2(-500, -218)
 
-[node name="Crate2" parent="." unique_id=356971058 instance=ExtResource("9_bvt00")]
+[node name="Crate2" parent="Crates" unique_id=356971058 instance=ExtResource("9_bvt00")]
 position = Vector2(582, -351)
 
-[node name="Crate3" parent="." unique_id=1732642843 instance=ExtResource("9_bvt00")]
+[node name="Crate3" parent="Crates" unique_id=1732642843 instance=ExtResource("9_bvt00")]
 position = Vector2(813, 643)
 
-[node name="Crate4" parent="." unique_id=445694713 instance=ExtResource("9_bvt00")]
+[node name="Crate4" parent="Crates" unique_id=445694713 instance=ExtResource("9_bvt00")]
 position = Vector2(-202, 803)
 
 [node name="Crate5" parent="." unique_id=287638613 instance=ExtResource("9_bvt00")]
@@ -2929,17 +2920,25 @@ position = Vector2(-825, 422)
 
 [node name="SupplyBox" parent="." unique_id=438471102 instance=ExtResource("5_wqkje")]
 position = Vector2(103, 223)
+[node name="Crate5" parent="Crates" unique_id=287638613 instance=ExtResource("9_bvt00")]
+position = Vector2(-816, 502)
 
-[node name="SupplyBox2" parent="." unique_id=145210551 instance=ExtResource("5_wqkje")]
+[node name="Crate6" parent="Crates" unique_id=1996845915 instance=ExtResource("9_bvt00")]
+position = Vector2(-69, 97)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1131468066]
+
+[node name="EnemyRanged11" parent="Enemies" unique_id=438471102 instance=ExtResource("5_wqkje")]
+position = Vector2(72, 216)
+
+[node name="EnemyRanged12" parent="Enemies" unique_id=145210551 instance=ExtResource("5_wqkje")]
 position = Vector2(-106, 24)
 
-[node name="SupplyBox3" parent="." unique_id=315116151 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged13" parent="Enemies" unique_id=315116151 instance=ExtResource("5_wqkje")]
 position = Vector2(-139, 306)
 
-[node name="EnemyRanged" parent="." unique_id=128781936 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged" parent="Enemies" unique_id=128781936 instance=ExtResource("5_wqkje")]
 position = Vector2(469, 477)
-script = ExtResource("6_8c0lf")
-fire_rate = 1.0
 
 [node name="EnemyFork" parent="." unique_id=1558449294 instance=ExtResource("6_0f350")]
 position = Vector2(-97, 24)
@@ -2976,21 +2975,22 @@ position = Vector2(661, 154)
 position = Vector2(442, -157)
 
 [node name="EnemyRanged2" parent="." unique_id=1149747911 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged2" parent="Enemies" unique_id=1149747911 instance=ExtResource("5_wqkje")]
 position = Vector2(590, -314)
 
-[node name="EnemyRanged3" parent="." unique_id=967417538 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged3" parent="Enemies" unique_id=967417538 instance=ExtResource("5_wqkje")]
 position = Vector2(10, -132)
 
-[node name="EnemyRanged4" parent="." unique_id=1287532653 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged4" parent="Enemies" unique_id=1287532653 instance=ExtResource("5_wqkje")]
 position = Vector2(-489, 240)
 
-[node name="EnemyRanged5" parent="." unique_id=1621408578 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged5" parent="Enemies" unique_id=1621408578 instance=ExtResource("5_wqkje")]
 position = Vector2(-61, 326)
 
-[node name="EnemyRanged6" parent="." unique_id=1456823718 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged6" parent="Enemies" unique_id=1456823718 instance=ExtResource("5_wqkje")]
 position = Vector2(-152, 528)
 
-[node name="EnemyRanged7" parent="." unique_id=1708161758 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged7" parent="Enemies" unique_id=1708161758 instance=ExtResource("5_wqkje")]
 position = Vector2(-535, 605)
 
 [node name="Enemy12" parent="." unique_id=199573657 instance=ExtResource("3_6phgx")]
@@ -2998,16 +2998,50 @@ position = Vector2(-834, 363)
 
 [node name="EnemyRanged8" parent="." unique_id=1598217105 instance=ExtResource("5_wqkje")]
 position = Vector2(-852, 477)
+[node name="EnemyRanged8" parent="Enemies" unique_id=1598217105 instance=ExtResource("5_wqkje")]
+position = Vector2(-809, 536)
 
-[node name="EnemyRanged9" parent="." unique_id=1849188136 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged9" parent="Enemies" unique_id=1849188136 instance=ExtResource("5_wqkje")]
 position = Vector2(-521, -163)
 
-[node name="EnemyRanged10" parent="." unique_id=2016754002 instance=ExtResource("5_wqkje")]
+[node name="EnemyRanged10" parent="Enemies" unique_id=2016754002 instance=ExtResource("5_wqkje")]
 position = Vector2(-470, -272)
 
-[node name="Enemy13" parent="." unique_id=752721175 instance=ExtResource("3_6phgx")]
+[node name="Enemy2" parent="Enemies" unique_id=2127075266 instance=ExtResource("3_6phgx")]
+position = Vector2(-257, 802)
+
+[node name="Enemy3" parent="Enemies" unique_id=1131796744 instance=ExtResource("3_6phgx")]
+position = Vector2(-144, 805)
+
+[node name="Enemy4" parent="Enemies" unique_id=136319698 instance=ExtResource("3_6phgx")]
+position = Vector2(821, 592)
+
+[node name="Enemy5" parent="Enemies" unique_id=1777982277 instance=ExtResource("3_6phgx")]
+position = Vector2(816, 696)
+
+[node name="Enemy6" parent="Enemies" unique_id=830338127 instance=ExtResource("3_6phgx")]
+position = Vector2(465, 850)
+
+[node name="Enemy7" parent="Enemies" unique_id=1782155575 instance=ExtResource("3_6phgx")]
+position = Vector2(79, 687)
+
+[node name="Enemy8" parent="Enemies" unique_id=283766944 instance=ExtResource("3_6phgx")]
+position = Vector2(74, 383)
+
+[node name="Enemy9" parent="Enemies" unique_id=1291712044 instance=ExtResource("3_6phgx")]
+position = Vector2(212, 222)
+
+[node name="Enemy10" parent="Enemies" unique_id=797481140 instance=ExtResource("3_6phgx")]
+position = Vector2(661, 154)
+
+[node name="Enemy11" parent="Enemies" unique_id=1164306693 instance=ExtResource("3_6phgx")]
+position = Vector2(442, -157)
+
+[node name="Enemy12" parent="Enemies" unique_id=199573657 instance=ExtResource("3_6phgx")]
+position = Vector2(-845, 469)
+
+[node name="Enemy13" parent="Enemies" unique_id=752721175 instance=ExtResource("3_6phgx")]
 position = Vector2(-147, -201)
 
-[node name="ProjectilePizza" type="Sprite2D" parent="." unique_id=1679316489]
-position = Vector2(-196, 592)
-texture = ExtResource("13_pa6b8")
+[node name="Enemy" parent="Enemies" unique_id=1042307464 instance=ExtResource("3_6phgx")]
+position = Vector2(-84, 173)
