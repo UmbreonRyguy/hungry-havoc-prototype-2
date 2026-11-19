@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxcs8owno37r7"]
 
-[ext_resource type="Script" uid="uid://cudlu31qpft4i" path="res://Scripts/bulletbox.gd" id="1_036ia"]
+[ext_resource type="Script" uid="uid://cudlu31qpft4i" path="res://Scenes/bulletbox.gd" id="1_036ia"]
 [ext_resource type="Texture2D" uid="uid://bnaicuptmcns5" path="res://Assets/fork.png" id="2_036ia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfkqw"]
@@ -8,7 +8,7 @@
 [node name="EnemyFork" type="Area2D" unique_id=1358513238]
 z_index = 2
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_036ia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19352356]

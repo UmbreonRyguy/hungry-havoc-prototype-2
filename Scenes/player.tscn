@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dburpfsjue84o"]
 
-[ext_resource type="Script" uid="uid://ckfi7rmflf3la" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://ckfi7rmflf3la" path="res://Scenes/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://buqhis4uuuwur" path="res://Assets/player.png" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://djr0836ascpkb" path="res://Scenes/health_component.tscn" id="2_cvnsp"]
 
