@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bglnisob0e808"]
 
+[ext_resource type="Texture2D" uid="uid://carfklw2cvq7k" path="res://Assets/Crate.png" id="1_yh5lw"]
+
 [sub_resource type="GDScript" id="GDScript_dev27"]
-script/source = "class_name SupplyBox
+script/source = "class_name crate
 extends Area2D
 
 
@@ -32,20 +34,17 @@ func kill() -> void:
 [sub_resource type="CircleShape2D" id="CircleShape2D_dev27"]
 radius = 7.0
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yh5lw"]
-size = Vector2(16, 16)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_yh5lw"]
 radius = 7.0
 
-[node name="Area2D" type="Area2D" unique_id=438471102]
+[node name="Crate" type="Area2D" unique_id=438471102]
 script = SubResource("GDScript_dev27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709622094]
 shape = SubResource("CircleShape2D_dev27")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982305407]
-texture = SubResource("PlaceholderTexture2D_yh5lw")
+texture = ExtResource("1_yh5lw")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1638929615]
 collision_layer = 2

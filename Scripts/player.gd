@@ -16,6 +16,8 @@ var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
 var firing_cooldown: float = 0
 
+var cratesCollected = 0
+
 
 func _process(delta: float) -> void:
 	firing_cooldown -= delta
@@ -73,6 +75,6 @@ func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	if health <= 0:
 		kill()
 
-
 func kill() -> void:
 	get_tree().paused = true
+	
