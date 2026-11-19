@@ -20,4 +20,5 @@ rotation = -1.5707964
 scale = Vector2(1.0598752, 1.5603247)
 texture = ExtResource("2_036ia")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
