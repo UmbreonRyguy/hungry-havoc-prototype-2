@@ -2,12 +2,18 @@ class_name Enemy
 extends CharacterBody2D
 
 @onready var player: Player = %"Player"
+@onready var sprite: Sprite2D = $Sprite2D
+
 
 @export var speed: float = 20
 @export var knockback_strength: float = 120
 @export var knockback_damping: float = 240
 
 var knockback_vector: Vector2 = Vector2.ZERO
+
+
+func _process(_delta: float) -> void:
+	sprite.global_rotation = 0
 
 
 func _physics_process(delta: float) -> void:
