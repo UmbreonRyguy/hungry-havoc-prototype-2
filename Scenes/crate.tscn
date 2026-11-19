@@ -2,15 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://carfklw2cvq7k" path="res://Assets/Crate.png" id="1_yh5lw"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dev27"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp72f"]
+size = Vector2(16, 16)
 
-[node name="Crate" type="Area2D" unique_id=438471102]
-collision_layer = 3
-collision_mask = 3
+[node name="Crate" type="Area2D" unique_id=438471102 groups=["crate"]]
+collision_layer = 8
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709622094]
-shape = SubResource("CircleShape2D_dev27")
+shape = SubResource("RectangleShape2D_wp72f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982305407]
 texture = ExtResource("1_yh5lw")

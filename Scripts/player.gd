@@ -15,7 +15,6 @@ var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
 var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
 var firing_cooldown: float = 0
-
 var cratesCollected = 0
 
 
@@ -77,4 +76,9 @@ func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 
 func kill() -> void:
 	get_tree().paused = true
-	
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("crate"):
+		area.queue_free()
+		cratesCollected += 1
+		print(cratesCollected)
