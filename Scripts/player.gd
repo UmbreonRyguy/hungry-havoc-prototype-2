@@ -82,3 +82,9 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		cratesCollected += 1
 		print(cratesCollected)
+	if area.is_in_group("door"):
+		if (cratesCollected >= 5):
+			print("Escaped!")
+		else:
+			print("Find the other crates first!")
+			
