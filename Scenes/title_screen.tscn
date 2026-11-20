@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://l02qd5df8b15"]
 
 [ext_resource type="Script" uid="uid://cf4ld3p0lk1gv" path="res://Scripts/title_screen.gd" id="1_4gxqj"]
-[ext_resource type="Texture2D" uid="uid://bq8nfcxus7ohh" path="res://Assets/hh_title.png" id="1_klylv"]
 [ext_resource type="FontFile" uid="uid://ba0rihs01n1v4" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="1_p3fck"]
+[ext_resource type="Texture2D" uid="uid://0gw8e75infwn" path="res://Assets/HH_title.png" id="4_55kwv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klylv"]
 
@@ -32,6 +32,7 @@ offset_top = 136.0
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(1, 0.76862746, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="." unique_id=673296507]
 layout_mode = 1
@@ -52,9 +53,17 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4gxqj")
 text = "Play"
 
-[node name="TitleScreenImage" type="Sprite2D" parent="." unique_id=882901078]
-position = Vector2(505, 186.99998)
-scale = Vector2(0.1624999, 0.16249992)
-texture = ExtResource("1_klylv")
+[node name="TextureRect" type="TextureRect" parent="." unique_id=730098352]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4033203
+anchor_top = 0.35080644
+anchor_right = 0.59375
+anchor_bottom = 0.45362905
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_55kwv")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]

@@ -2709,7 +2709,8 @@ position = Vector2(-84, 173)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
+offset_left = -99.0
+offset_right = -3.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
@@ -2729,6 +2730,11 @@ texture = ExtResource("10_oqgf2")
 stretch_mode = 2
 
 [node name="Heart4" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=345650045]
+layout_mode = 2
+texture = ExtResource("10_oqgf2")
+stretch_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=1597366186]
 layout_mode = 2
 texture = ExtResource("10_oqgf2")
 stretch_mode = 2
