@@ -22,6 +22,15 @@ var knockback_vector: Vector2 = Vector2.ZERO
 var firing_cooldown: float = 0
 var cratesCollected = 0
 
+var hearts_list : Array[TextureRect]
+
+
+func _ready() -> void:
+	var hearts_parent = $"../HealthUI/HBoxContainer"
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
+	print(hearts_list)
+
 
 func _process(delta: float) -> void:
 	firing_cooldown -= delta
@@ -73,6 +82,11 @@ func apply_knockback(delta: float) -> void:
 func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	print("PLAYER: ", health)
 	
+	
+	# Update Heart Display
+	for i in range(hearts_list.size()):
+		hearts_list[i].visible = i < health
+	
 	sprite.modulate = damage_effect_color
 	var timer: SceneTreeTimer = get_tree().create_timer(damage_effect_length)
 	timer.timeout.connect(func(): sprite.modulate = Color.WHITE)
@@ -97,4 +111,5 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			print("Escaped!")
 		else:
 			print("Find the other crates first!")
+			
 			
