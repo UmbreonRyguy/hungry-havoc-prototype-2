@@ -2,21 +2,34 @@ class_name Player
 extends CharacterBody2D
 
 @export var speed: float = 80
+## Bullets per second
+@export var firing_speed: float = 2.5
 @export var knockback_strength: float = 120
 @export var knockback_damping: float = 240
 
+@export_group("Damage Effect")
+@export var damage_effect_length: float = 0.1
+@export var damage_effect_color: Color = Color.FIREBRICK
+
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bullet_spawn_point: Node2D = $BulletSpawnPoint
+@onready var sprite: Sprite2D = $Sprite2D
 
 var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
 
 var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
+var firing_cooldown: float = 0
+var cratesCollected = 0
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Attack"):
+func _process(delta: float) -> void:
+	firing_cooldown -= delta
+	
+	if firing_cooldown <= 0 && Input.is_action_pressed("Attack"):
 		attack()
+		# Reset cooldown
+		firing_cooldown = 1 / firing_speed
 
 
 func attack() -> void:
@@ -59,6 +72,11 @@ func apply_knockback(delta: float) -> void:
 
 func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	print("PLAYER: ", health)
+	
+	sprite.modulate = damage_effect_color
+	var timer: SceneTreeTimer = get_tree().create_timer(damage_effect_length)
+	timer.timeout.connect(func(): sprite.modulate = Color.WHITE)
+	
 	# Trigger knockback using collision angle
 	var angle: float = global_position.angle_to_point(area.global_position)
 	knockback_vector = Vector2.from_angle(angle) * -knockback_strength
@@ -66,6 +84,17 @@ func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	if health <= 0:
 		kill()
 
-
 func kill() -> void:
 	get_tree().paused = true
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("crate"):
+		area.queue_free()
+		cratesCollected += 1
+		print(cratesCollected)
+	if area.is_in_group("door"):
+		if (cratesCollected >= 5):
+			print("Escaped!")
+		else:
+			print("Find the other crates first!")
+			
