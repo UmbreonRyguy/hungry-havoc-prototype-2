@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 		# Reset cooldown
 		firing_cooldown = 1 / firing_speed
 
-
 func attack() -> void:
 	var pizza: Area2D = pizza_scene.instantiate()
 	pizza.global_transform = bullet_spawn_point.global_transform
@@ -96,7 +95,8 @@ func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	knockback_vector = Vector2.from_angle(angle) * -knockback_strength
 	
 	if health <= 0:
-		kill()
+		#kill()
+		get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 func kill() -> void:
 	get_tree().paused = true
