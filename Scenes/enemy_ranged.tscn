@@ -32,7 +32,7 @@ texture = ExtResource("2_kowwf")
 
 [node name="HealthComponent" parent="." unique_id=1554534961 node_paths=PackedStringArray("hitbox") instance=ExtResource("2_t233f")]
 hitbox = NodePath("../Hitbox")
-health = 4
+health = 2
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1519313762]
 collision_layer = 4
