@@ -7,8 +7,13 @@ extends CharacterBody2D
 @export var knockback_strength: float = 120
 @export var knockback_damping: float = 240
 
+@export_group("Damage Effect")
+@export var damage_effect_length: float = 0.1
+@export var damage_effect_color: Color = Color.FIREBRICK
+
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bullet_spawn_point: Node2D = $BulletSpawnPoint
+@onready var sprite: Sprite2D = $Sprite2D
 
 var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
 
@@ -67,6 +72,11 @@ func apply_knockback(delta: float) -> void:
 
 func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	print("PLAYER: ", health)
+	
+	sprite.modulate = damage_effect_color
+	var timer: SceneTreeTimer = get_tree().create_timer(damage_effect_length)
+	timer.timeout.connect(func(): sprite.modulate = Color.WHITE)
+	
 	# Trigger knockback using collision angle
 	var angle: float = global_position.angle_to_point(area.global_position)
 	knockback_vector = Vector2.from_angle(angle) * -knockback_strength
