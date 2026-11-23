@@ -1,11 +1,15 @@
 class_name Player
 extends CharacterBody2D
 
+signal crate_collected(total: int)
+
 @export var speed: float = 80
 ## Bullets per second
 @export var firing_speed: float = 2.5
 @export var knockback_strength: float = 120
 @export var knockback_damping: float = 240
+
+@export var win_text: RichTextLabel;
 
 @export_group("Damage Effect")
 @export var damage_effect_length: float = 0.1
@@ -106,9 +110,12 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		area.queue_free()
 		cratesCollected += 1
 		print(cratesCollected)
+		crate_collected.emit(cratesCollected)
 	if area.is_in_group("door"):
 		if (cratesCollected >= 5):
 			print("Escaped!")
+			win_text.visible = true
+			get_tree().paused = true
 		else:
 			print("Find the other crates first!")
 			

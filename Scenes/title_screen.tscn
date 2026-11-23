@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cwv4r5tyrq3mw"]
 
 [ext_resource type="Script" uid="uid://cf4ld3p0lk1gv" path="res://Scripts/title_screen.gd" id="1_4gxqj"]
-[ext_resource type="FontFile" uid="uid://ba0rihs01n1v4" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="1_p3fck"]
 [ext_resource type="Texture2D" uid="uid://0gw8e75infwn" path="res://Assets/HH_title.png" id="4_55kwv"]
+[ext_resource type="FontFile" uid="uid://cghfr65lwu3hj" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="4_twnyg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klylv"]
 
@@ -47,7 +47,8 @@ offset_right = 33.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_p3fck")
+theme_override_fonts/font = ExtResource("4_twnyg")
+theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_klylv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_twnyg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4gxqj")
@@ -76,8 +77,8 @@ anchor_bottom = 0.6451613
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_p3fck")
-theme_override_font_sizes/font_size = 13
+theme_override_fonts/font = ExtResource("4_twnyg")
+theme_override_font_sizes/font_size = 8
 text = "Find all the crates, 
 then find the exit"
 metadata/_edit_use_anchors_ = true

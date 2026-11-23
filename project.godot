@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hungry Havoc"
-run/main_scene="uid://l02qd5df8b15"
+run/main_scene="uid://cwv4r5tyrq3mw"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

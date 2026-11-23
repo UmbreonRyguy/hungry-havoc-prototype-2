@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bsfmepmhabdh1" path="res://Scenes/crate.tscn" id="9_bvt00"]
 [ext_resource type="Texture2D" uid="uid://mwn5uiinlbj3" path="res://Assets/door.png" id="10_oqgf2"]
 [ext_resource type="Texture2D" uid="uid://x84cm0ygh6ho" path="res://Assets/heart.png" id="11_qxfql"]
+[ext_resource type="PackedScene" uid="uid://d2mx1fbjos2xo" path="res://Scenes/crates_collected_ui.tscn" id="12_ha31o"]
+[ext_resource type="FontFile" uid="uid://cghfr65lwu3hj" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="13_pa6b8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pa6b8"]
 texture = ExtResource("4_754fn")
@@ -7382,9 +7384,10 @@ position = Vector2(-3, 15)
 tile_map_data = PackedByteArray("AAATABkAAAALAA4AAAATABgAAAAMAA0AAAAxAB8AAAAMAA4AAAA2AB8AAAALAA4AAADg/xAAAAAMAA4AAADg/w8AAAALAAwAAAAWADMAAAALAA0AAAAbADMAAAAMAA4AAAAgADMAAAALAA4AAAAIACYAAAALAAwAAAAIABYAAAAMAA0AAAADABsAAAAMAA4AAAD6/x0AAAAMAA4AAADt/yQAAAAAAA0AAADu/yQAAAABAA0AAAD9/xsAAAAAAA0AAAD+/xsAAAABAA0AAAARAAAAAAAAAA0AAAASAAAAAAABAA0AAAD4/+3/AAAAAA0AAAD5/+3/AAABAA0AAADf/+r/AAAAAA0AAADg/+r/AAABAA0AAAAaAOT/AAAAAA0AAAAbAOT/AAABAA0AAAAlAPH/AAAAAA0AAAAmAPH/AAABAA0AAAAdAAsAAAAAAA0AAAAeAAsAAAABAA0AAAAXABwAAAAAAA0AAAAYABwAAAABAA0AAAAiACwAAAAAAA0AAAAjACwAAAABAA0AAADs/ysAAAAGABIAAADs/ywAAAAGABMAAADs/y0AAAAGABQAAADt/ysAAAAHABIAAADt/ywAAAAHABMAAADt/y0AAAAHABQAAADv/y0AAAAGABIAAADv/y4AAAAGABMAAADv/y8AAAAGABQAAADw/y0AAAAHABIAAADw/y4AAAAHABMAAADw/y8AAAAHABQAAADs/zIAAAAGABIAAADs/zMAAAAGABMAAADs/zQAAAAGABQAAADt/zIAAAAHABIAAADt/zMAAAAHABMAAADt/zQAAAAHABQAAADu/zIAAAAGABIAAADu/zMAAAAGABMAAADu/zQAAAAGABQAAADv/zIAAAAHABIAAADv/zMAAAAHABMAAADv/zQAAAAHABQAAAD7/ywAAAANAFQAAAD7/y0AAAANAFUAAAD6/ywAAAANAFQAAAD6/y0AAAANAFUAAAD5/ywAAAAMAFQAAAD5/y0AAAAMAFUAAAD4/zIAAAALAFMAAAD4/zMAAAALAFQAAAD0/zMAAAALAFMAAAD0/zQAAAALAFQAAAD7/zAAAAAMAFYAAAD7/zEAAAAMAFcAAAD5/yUAAAAMAFYAAAD5/yYAAAAMAFcAAAD6/yUAAAAMAFYAAAD6/yYAAAAMAFcAAAD7/yUAAAALAFMAAAD7/yYAAAALAFQAAAD7/ygAAAANAFYAAAD7/ykAAAANAFcAAAD6/ygAAAAMAFQAAAD6/ykAAAAMAFUAAADu/y4AAAALAFUAAADu/y8AAAALAFYAAADX/yEAAAAMAA4AAADN/xMAAAALAA0AAADP/xsAAAALAA0AAADj/yEAAAALAAwAAADW/xMAAAALAAwAAADW/xEAAAAKAC8AAADX/xEAAAALAC8AAADX/ywAAAAMAFUAAADT/zMAAAAAAEIAAADT/zQAAAAAAEMAAADK/zMAAAACAEQAAADK/zQAAAACAEUAAADW/zEAAAAMAFQAAADW/zIAAAAMAFUAAADK/ysAAAAMAFQAAADK/ywAAAAMAFUAAADP/zEAAAAMAFQAAADP/zIAAAAMAFUAAADQ/zEAAAANAFYAAADQ/zIAAAANAFcAAADX/zEAAAANAFYAAADX/zIAAAANAFcAAADJ/ysAAAAMAFYAAADJ/ywAAAAMAFcAAADM/y4AAAAMAFYAAADM/y8AAAAMAFcAAADN/y4AAAALAFUAAADN/y8AAAALAFYAAADR/zEAAAALAFMAAADR/zIAAAALAFQAAADX/ysAAAAMAFQAAADW/ysAAAANAFQAAADW/ywAAAANAFUAAAA=")
 tile_set = SubResource("TileSet_73fnw")
 
-[node name="Player" parent="." unique_id=127932407 instance=ExtResource("2_k5f4k")]
+[node name="Player" parent="." unique_id=127932407 node_paths=PackedStringArray("win_text") instance=ExtResource("2_k5f4k")]
 unique_name_in_owner = true
 position = Vector2(176, 531)
+win_text = NodePath("../WinTextLayer/WinText")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1331016377]
 position = Vector2(-1, 2)
@@ -7534,3 +7537,28 @@ stretch_mode = 2
 layout_mode = 2
 texture = ExtResource("11_qxfql")
 stretch_mode = 2
+
+[node name="CratesCollectedUI" parent="." unique_id=1734709169 instance=ExtResource("12_ha31o")]
+
+[node name="WinTextLayer" type="CanvasLayer" parent="." unique_id=2051238066]
+
+[node name="WinText" type="RichTextLabel" parent="WinTextLayer" unique_id=865364885]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -16.0
+offset_right = 112.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/normal_font = ExtResource("13_pa6b8")
+theme_override_font_sizes/normal_font_size = 32
+text = "YOU WIN"
+
+[connection signal="crate_collected" from="Player" to="CratesCollectedUI" method="_on_crate_collected"]
