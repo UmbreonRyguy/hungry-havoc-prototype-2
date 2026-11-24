@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwfixeca5scik" path="res://Assets/wallPlaceholder.png" id="3_8c0lf"]
 [ext_resource type="Texture2D" uid="uid://bjhffotkxye7l" path="res://Assets/Room_Builder_free_16x16.png" id="4_754fn"]
 [ext_resource type="Texture2D" uid="uid://d26oslcjuoy8t" path="res://Assets/Interiors_free_16x16.png" id="5_bvt00"]
+[ext_resource type="Texture2D" uid="uid://x84cm0ygh6ho" path="res://Assets/heart.png" id="7_8c0lf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pa6b8"]
 texture = ExtResource("4_754fn")
@@ -5178,3 +5179,41 @@ position = Vector2(-1, 2)
 [node name="Crates" type="Node2D" parent="." unique_id=1518047796]
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1131468066]
+
+[node name="HealthUI" type="CanvasLayer" parent="." unique_id=1474143585]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HealthUI" unique_id=1410304232]
+anchors_preset = -1
+anchor_left = 0.69100004
+anchor_top = 2.3690002
+anchor_right = 0.69100004
+anchor_bottom = 2.3690002
+offset_left = -19.896011
+offset_top = -530.65607
+offset_right = 76.10399
+offset_bottom = -503.65607
+
+[node name="Heart1" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=1355941856]
+layout_mode = 2
+texture = ExtResource("7_8c0lf")
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=479620654]
+layout_mode = 2
+texture = ExtResource("7_8c0lf")
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=1551256364]
+layout_mode = 2
+texture = ExtResource("7_8c0lf")
+stretch_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=1379026405]
+layout_mode = 2
+texture = ExtResource("7_8c0lf")
+stretch_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="HealthUI/HBoxContainer" unique_id=1002762809]
+layout_mode = 2
+texture = ExtResource("7_8c0lf")
+stretch_mode = 2
