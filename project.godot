@@ -23,7 +23,6 @@ Global="*uid://cin28ogsprp6b"
 
 window/size/viewport_width=256
 window/size/viewport_height=224
-window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
