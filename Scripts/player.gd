@@ -1,16 +1,27 @@
 class_name Player
 extends CharacterBody2D
 
+enum CharacterClass {
+	MELEE,
+	RANGED,
+	BOMBER
+}
+
 signal crate_collected(total: int)
 signal set_score(total: int)
 
+
+@export var characterClass: CharacterClass = CharacterClass.RANGED
 @export var speed: float = 80
 ## Bullets per second
 @export var firing_speed: float = 2.5
-@export var knockback_strength: float = 120
-@export var knockback_damping: float = 240
 
 @export var win_text: RichTextLabel;
+
+@export_group("Knockback Effect")
+## Controls the knockback when the player is hit
+@export var knockback_strength: float = 120
+@export var knockback_damping: float = 240
 
 @export_group("Damage Effect")
 @export var damage_effect_length: float = 0.1
@@ -39,14 +50,24 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	firing_cooldown -= delta
-	
-	if firing_cooldown <= 0 && Input.is_action_pressed("Attack"):
-		attack()
-		# Reset cooldown
-		firing_cooldown = 1 / firing_speed
+	_process_attack(delta)
 
-func attack() -> void:
+
+func _process_attack(delta: float) -> void:
+	match characterClass:
+		CharacterClass.MELEE:
+			pass
+		CharacterClass.RANGED:
+			firing_cooldown -= delta
+			if firing_cooldown <= 0 && Input.is_action_pressed("Attack"):
+				ranged_attack()
+				# Reset cooldown
+				firing_cooldown = 1 / firing_speed
+		CharacterClass.BOMBER:
+			pass
+	
+	
+func ranged_attack() -> void:
 	var pizza: Area2D = pizza_scene.instantiate()
 	pizza.global_transform = bullet_spawn_point.global_transform
 	add_sibling(pizza)
