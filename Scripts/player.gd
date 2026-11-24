@@ -8,15 +8,20 @@ enum CharacterClass {
 }
 
 signal crate_collected(total: int)
-signal set_score(total: int)
 
 
 @export var characterClass: CharacterClass = CharacterClass.RANGED
 @export var speed: float = 80
-## Bullets per second
-@export var firing_speed: float = 2.5
-
 @export var win_text: RichTextLabel;
+
+@export_group("Attack Speeds")
+## Attacks per second
+@export var melee_attack_speed: float = 1.5
+## Attacks per second
+@export var ranged_attack_speed: float = 2.5
+## Attacks per second
+@export var bomber_attack_speed: float = 1.5
+
 
 @export_group("Knockback Effect")
 ## Controls the knockback when the player is hit
@@ -27,6 +32,7 @@ signal set_score(total: int)
 @export var damage_effect_length: float = 0.1
 @export var damage_effect_color: Color = Color.FIREBRICK
 
+
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bullet_spawn_point: Node2D = $BulletSpawnPoint
 @onready var sprite: Sprite2D = $Sprite2D
@@ -35,7 +41,7 @@ var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
 
 var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
-var firing_cooldown: float = 0
+var attack_cooldown: float = 0
 var cratesCollected = 0
 #var score = 0
 
@@ -54,23 +60,33 @@ func _process(delta: float) -> void:
 
 
 func _process_attack(delta: float) -> void:
-	match characterClass:
-		CharacterClass.MELEE:
-			pass
-		CharacterClass.RANGED:
-			firing_cooldown -= delta
-			if firing_cooldown <= 0 && Input.is_action_pressed("Attack"):
+	attack_cooldown -= delta
+	if attack_cooldown <= 0 && Input.is_action_pressed("Attack"):
+		# Attack and Reset cooldown
+		match characterClass:
+			CharacterClass.MELEE:
+				melee_attack()
+				attack_cooldown = 1 / melee_attack_speed
+			CharacterClass.RANGED:
 				ranged_attack()
-				# Reset cooldown
-				firing_cooldown = 1 / firing_speed
-		CharacterClass.BOMBER:
-			pass
-	
+				attack_cooldown = 1 / ranged_attack_speed
+			CharacterClass.BOMBER:
+				bomber_attack()
+				attack_cooldown = 1 / bomber_attack_speed
+
+
+func melee_attack() -> void:
+	pass
+
 	
 func ranged_attack() -> void:
 	var pizza: Area2D = pizza_scene.instantiate()
 	pizza.global_transform = bullet_spawn_point.global_transform
 	add_sibling(pizza)
+
+
+func bomber_attack() -> void:
+	pass
 
 
 func _physics_process(delta: float) -> void:
