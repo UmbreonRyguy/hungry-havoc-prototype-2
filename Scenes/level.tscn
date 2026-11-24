@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bjhffotkxye7l" path="res://Assets/Room_Builder_free_16x16.png" id="4_754fn"]
 [ext_resource type="Texture2D" uid="uid://d26oslcjuoy8t" path="res://Assets/Interiors_free_16x16.png" id="5_bvt00"]
 [ext_resource type="Texture2D" uid="uid://x84cm0ygh6ho" path="res://Assets/heart.png" id="7_8c0lf"]
+[ext_resource type="Script" uid="uid://c3vb3kpayen2n" path="res://Scripts/wave_manager.gd" id="8_754fn"]
+[ext_resource type="FontFile" uid="uid://cghfr65lwu3hj" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="9_bvt00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pa6b8"]
 texture = ExtResource("4_754fn")
@@ -1741,46 +1743,84 @@ texture = ExtResource("4_754fn")
 8:15/0 = 0
 9:15/0 = 0
 0:16/0 = 0
+0:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:16/0 = 0
+1:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:16/0 = 0
+2:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:16/0 = 0
+3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:16/0 = 0
 8:16/0 = 0
 9:16/0 = 0
 0:17/0 = 0
+0:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:17/0 = 0
+1:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:17/0 = 0
+2:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:17/0 = 0
+3:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:17/0 = 0
+4:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:17/0 = 0
+5:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:17/0 = 0
+6:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:17/0 = 0
+7:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:17/0 = 0
+8:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:17/0 = 0
+9:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:18/0 = 0
+0:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:18/0 = 0
+1:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:18/0 = 0
+2:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:18/0 = 0
+3:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:18/0 = 0
+7:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:18/0 = 0
+8:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:18/0 = 0
+9:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:19/0 = 0
+0:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:19/0 = 0
+1:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:19/0 = 0
+2:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:19/0 = 0
+3:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:19/0 = 0
+4:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:19/0 = 0
+5:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:19/0 = 0
+6:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:19/0 = 0
+7:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:19/0 = 0
+8:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:19/0 = 0
+9:19/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:20/0 = 0
+0:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:20/0 = 0
+1:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:20/0 = 0
+2:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:20/0 = 0
+3:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:20/0 = 0
+7:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:20/0 = 0
+8:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:20/0 = 0
+9:20/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxfql"]
 texture = ExtResource("5_bvt00")
@@ -5148,7 +5188,7 @@ texture = ExtResource("5_bvt00")
 15:88/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_6kmws"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 8
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_ha31o")
 
@@ -5168,9 +5208,10 @@ position = Vector2(-3, 15)
 tile_map_data = PackedByteArray("AAAqABYAAAABAAUAAAAqABcAAAABAAYAAAApABYAAAABAAUAAAApABcAAAABAAYAAAAoABYAAAABAAUAAAAoABcAAAABAAYAAAAnABYAAAABAAUAAAAnABcAAAABAAYAAAAmABYAAAABAAUAAAAmABcAAAABAAYAAAAlABYAAAABAAUAAAAlABcAAAABAAYAAAAkABYAAAABAAUAAAAkABcAAAABAAYAAAAjABYAAAABAAUAAAAjABcAAAABAAYAAAAiABYAAAABAAUAAAAiABcAAAABAAYAAAAhABYAAAAAAAUAAAAhABcAAAAAAAYAAAAhABgAAAAAAAcAAAAhABkAAAAAAAcAAAAhABoAAAAAAAcAAAAhABsAAAAAAAcAAAAhABwAAAAAAAgAAAAhAB0AAAAAAAkAAAAiABwAAAABAAgAAAAiAB0AAAABAAkAAAAjABwAAAADAAkAAAAjAB0AAAABAAkAAAAkABwAAAABAAgAAAAkAB0AAAABAAkAAAAlABwAAAABAAgAAAAlAB0AAAABAAkAAAAmABwAAAABAAgAAAAmAB0AAAABAAkAAAAnABwAAAABAAgAAAAnAB0AAAABAAkAAAAoABwAAAADAAkAAAAoAB0AAAABAAkAAAApABwAAAABAAgAAAApAB0AAAABAAkAAAAqABwAAAABAAgAAAAqAB0AAAABAAkAAAAjABsAAAADAAgAAAAoABsAAAADAAgAAAApACEAAAAHAEwAAAApACIAAAAHAE0AAAApACMAAAAHAE4AAAAqACEAAAAIAEwAAAAqACIAAAAIAE0AAAAqACMAAAAIAE4AAAApACoAAAAHAEwAAAApACsAAAAHAE0AAAApACwAAAAHAE4AAAAqACoAAAAIAEwAAAAqACsAAAAIAE0AAAAqACwAAAAIAE4AAAApADEAAAAHAEwAAAApADIAAAAHAE0AAAApADMAAAAHAE4AAAAqADEAAAAIAEwAAAAqADIAAAAIAE0AAAAqADMAAAAIAE4AAAAeADEAAAAHAEwAAAAeADIAAAAHAE0AAAAeADMAAAAHAE4AAAAfADEAAAAIAEwAAAAfADIAAAAIAE0AAAAfADMAAAAIAE4AAAAeACoAAAAHAEwAAAAeACsAAAAHAE0AAAAeACwAAAAHAE4AAAAfACoAAAAIAEwAAAAfACsAAAAIAE0AAAAfACwAAAAIAE4AAAAeACEAAAAHAEwAAAAeACIAAAAHAE0AAAAeACMAAAAHAE4AAAAfACEAAAAIAEwAAAAfACIAAAAIAE0AAAAfACMAAAAIAE4AAAAmACEAAAAJAEwAAAAmACIAAAAJAE0AAAAmACMAAAAJAE4AAAAnACEAAAAKAEwAAAAnACIAAAAKAE0AAAAnACMAAAAKAE4AAAAbACEAAAAJAEwAAAAbACIAAAAJAE0AAAAbACMAAAAJAE4AAAAcACEAAAAKAEwAAAAcACIAAAAKAE0AAAAcACMAAAAKAE4AAAAbACoAAAAJAEwAAAAbACsAAAAJAE0AAAAbACwAAAAJAE4AAAAcACoAAAAKAEwAAAAcACsAAAAKAE0AAAAcACwAAAAKAE4AAAAbADEAAAAJAEwAAAAbADIAAAAJAE0AAAAbADMAAAAJAE4AAAAcADEAAAAKAEwAAAAcADIAAAAKAE0AAAAcADMAAAAKAE4AAAAmADEAAAAJAEwAAAAmADIAAAAJAE0AAAAmADMAAAAJAE4AAAAnADEAAAAKAEwAAAAnADIAAAAKAE0AAAAnADMAAAAKAE4AAAAmACoAAAAJAEwAAAAmACsAAAAJAE0AAAAmACwAAAAJAE4AAAAnACoAAAAKAEwAAAAnACsAAAAKAE0AAAAnACwAAAAKAE4AAAAoADIAAAAHACEAAAAoADMAAAAHACIAAAAoACsAAAAHACEAAAAoACwAAAAHACIAAAAoACIAAAAHACEAAAAoACMAAAAHACIAAAAdACIAAAAHACEAAAAdACMAAAAHACIAAAAdACsAAAAHACEAAAAdACwAAAAHACIAAAAdADIAAAAHACEAAAAdADMAAAAHACIAAAA=")
 tile_set = SubResource("TileSet_6kmws")
 
-[node name="Player" parent="." unique_id=127932407 instance=ExtResource("2_k5f4k")]
+[node name="Player" parent="." unique_id=127932407 groups=["player"] instance=ExtResource("2_k5f4k")]
 unique_name_in_owner = true
 position = Vector2(176, 531)
+collision_mask = 15
 win_text = NodePath("../WinTextLayer/WinText")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1331016377]
@@ -5217,3 +5258,24 @@ stretch_mode = 2
 layout_mode = 2
 texture = ExtResource("7_8c0lf")
 stretch_mode = 2
+
+[node name="WaveManager" type="Area2D" parent="." unique_id=986435212 node_paths=PackedStringArray("enemies_parent", "wave_label")]
+script = ExtResource("8_754fn")
+enemies_parent = NodePath("../Enemies")
+wave_label = NodePath("../WaveUI/CurrentWave")
+
+[node name="WaveUI" type="CanvasLayer" parent="." unique_id=1398444534]
+
+[node name="CurrentWave" type="Label" parent="WaveUI" unique_id=1803450458]
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.001
+anchor_right = 0.001
+anchor_bottom = 0.001
+offset_left = -0.256
+offset_top = -0.224
+offset_right = 39.744
+offset_bottom = 22.776
+theme_override_fonts/font = ExtResource("9_bvt00")
+theme_override_font_sizes/font_size = 10
+text = "Wave 1"
