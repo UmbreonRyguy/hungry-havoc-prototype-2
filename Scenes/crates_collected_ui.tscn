@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d2mx1fbjos2xo"]
+
+[ext_resource type="FontFile" uid="uid://cghfr65lwu3hj" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_kvdjx"]
+[ext_resource type="Script" uid="uid://bmgqwi7xvs2ri" path="res://Scripts/crates_collected_text.gd" id="2_wvoai"]
+[ext_resource type="Texture2D" uid="uid://carfklw2cvq7k" path="res://Assets/Crate.png" id="3_rc66a"]
+
+[node name="CratesCollectedUI" type="CanvasLayer" unique_id=1734709169]
+script = ExtResource("2_wvoai")
+
+[node name="CratesCollectedText" type="RichTextLabel" parent="." unique_id=11075967]
+offset_left = 24.0
+offset_top = 7.0
+offset_right = 121.0
+offset_bottom = 20.0
+theme_override_fonts/normal_font = ExtResource("1_kvdjx")
+theme_override_font_sizes/normal_font_size = 8
+text = "0/5"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1356151112]
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 21.0
+offset_bottom = 20.0
+texture = ExtResource("3_rc66a")
