@@ -1,16 +1,51 @@
 [gd_scene format=3 uid="uid://djhou7dt63nte"]
 
 [ext_resource type="Script" uid="uid://b54y7supycnmo" path="res://Scripts/bomb.gd" id="1_j27un"]
+[ext_resource type="Texture2D" uid="uid://beppgt78alvof" path="res://Assets/BaguetteBomb-Sheet-Sheet.png" id="2_ail0f"]
 [ext_resource type="Script" uid="uid://bc640jh6ui53w" path="res://Scripts/explosion_attack_box.gd" id="2_j27un"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dfkqw"]
 radius = 8.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e4mcj"]
-load_path = "res://.godot/imported/projectile_pizza.png-8ee519ab6904d17ebb145be0190122c3.ctex"
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_17rro"]
 radius = 50.0
+
+[sub_resource type="Animation" id="Animation_ail0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_chqf7"]
+resource_name = "blink"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.32612807, 0.5953572, 0.7, 0.82148266, 0.9214826, 0.98814934, 1.0622103, 1.1333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8h46w"]
+_data = {
+&"RESET": SubResource("Animation_ail0f"),
+&"blink": SubResource("Animation_chqf7")
+}
 
 [node name="BaguetteBomb" type="RigidBody2D" unique_id=449664924]
 z_index = 2
@@ -26,10 +61,9 @@ explosion_time = 1.2
 shape = SubResource("CircleShape2D_dfkqw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1017319859]
-modulate = Color(1.4154127, 0.95915633, 2.6726522, 1)
-rotation = -1.5707964
-scale = Vector2(0.6824874, 0.6824876)
-texture = SubResource("CompressedTexture2D_e4mcj")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ail0f")
+hframes = 2
 
 [node name="ExplosionAttackBox" type="Area2D" parent="." unique_id=935859721]
 collision_layer = 2
@@ -40,3 +74,7 @@ damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionAttackBox" unique_id=1738837426]
 shape = SubResource("CircleShape2D_17rro")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1277221780]
+libraries/ = SubResource("AnimationLibrary_8h46w")
+autoplay = &"blink"
