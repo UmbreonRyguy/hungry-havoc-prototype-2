@@ -1,11 +1,15 @@
 class_name Player
 extends CharacterBody2D
 
+signal crate_collected(total: int)
+
 @export var speed: float = 80
 ## Bullets per second
 @export var firing_speed: float = 2.5
 @export var knockback_strength: float = 120
 @export var knockback_damping: float = 240
+
+@export var win_text: RichTextLabel;
 
 @export_group("Damage Effect")
 @export var damage_effect_length: float = 0.1
@@ -20,6 +24,16 @@ var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
 var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
 var firing_cooldown: float = 0
+var cratesCollected = 0
+
+var hearts_list : Array[TextureRect]
+
+
+func _ready() -> void:
+	var hearts_parent = $"../HealthUI/HBoxContainer"
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
+	print(hearts_list)
 
 
 func _process(delta: float) -> void:
@@ -29,7 +43,6 @@ func _process(delta: float) -> void:
 		attack()
 		# Reset cooldown
 		firing_cooldown = 1 / firing_speed
-
 
 func attack() -> void:
 	var pizza: Area2D = pizza_scene.instantiate()
@@ -72,6 +85,11 @@ func apply_knockback(delta: float) -> void:
 func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	print("PLAYER: ", health)
 	
+	
+	# Update Heart Display
+	for i in range(hearts_list.size()):
+		hearts_list[i].visible = i < health
+	
 	sprite.modulate = damage_effect_color
 	var timer: SceneTreeTimer = get_tree().create_timer(damage_effect_length)
 	timer.timeout.connect(func(): sprite.modulate = Color.WHITE)
@@ -81,8 +99,24 @@ func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	knockback_vector = Vector2.from_angle(angle) * -knockback_strength
 	
 	if health <= 0:
-		kill()
-
+		#kill()
+		get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
 
 func kill() -> void:
 	get_tree().paused = true
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("crate"):
+		area.queue_free()
+		cratesCollected += 1
+		print(cratesCollected)
+		crate_collected.emit(cratesCollected)
+	if area.is_in_group("door"):
+		if (cratesCollected >= 5):
+			print("Escaped!")
+			win_text.visible = true
+			get_tree().paused = true
+		else:
+			print("Find the other crates first!")
+			
+			

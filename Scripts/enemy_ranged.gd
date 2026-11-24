@@ -1,7 +1,7 @@
 class_name EnemyRanged
 extends Enemy
 
-@export var fire_rate: float = 1.0
+@export var fire_rate: float = 2.5
 @onready var bullet_spawn_point: Node2D = $BulletSpawnPoint
 var fork_scene: PackedScene = preload("res://Scenes/enemy_fork.tscn")
 var shoot_timer: Timer

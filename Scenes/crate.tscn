@@ -1,20 +1,58 @@
 [gd_scene format=3 uid="uid://bsfmepmhabdh1"]
 
-[ext_resource type="Script" uid="uid://d2a7uswttu1p5" path="res://Scripts/crate.gd" id="1_i4r3v"]
-[ext_resource type="Texture2D" uid="uid://carfklw2cvq7k" path="res://Assets/Crate.png" id="1_wp72f"]
+[ext_resource type="Texture2D" uid="uid://carfklw2cvq7k" path="res://Assets/Crate.png" id="1_yh5lw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kmws"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp72f"]
 size = Vector2(16, 16)
 
-[node name="Crate" type="Area2D" unique_id=1486057382]
-collision_layer = 0
-collision_mask = 3
-script = ExtResource("1_i4r3v")
+[sub_resource type="Animation" id="Animation_wp72f"]
+resource_name = "CrateMovement"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(0, -2), Vector2(0, 2)]
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1169445217]
-texture = ExtResource("1_wp72f")
+[sub_resource type="Animation" id="Animation_i4r3v"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1022207334]
-shape = SubResource("RectangleShape2D_6kmws")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i4r3v"]
+_data = {
+&"CrateMovement": SubResource("Animation_wp72f"),
+&"RESET": SubResource("Animation_i4r3v")
+}
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Crate" type="Area2D" unique_id=438471102 groups=["crate"]]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709622094]
+shape = SubResource("RectangleShape2D_wp72f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1982305407]
+texture = ExtResource("1_yh5lw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2059936782]
+libraries/ = SubResource("AnimationLibrary_i4r3v")
+autoplay = &"CrateMovement"
+
+[connection signal="body_entered" from="." to="." method="_on_area_2d_body_entered"]

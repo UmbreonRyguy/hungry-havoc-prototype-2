@@ -1,7 +1,7 @@
 class_name Enemy
 extends CharacterBody2D
 
-@onready var player: Player = %"Player"
+@onready var player: Player = get_tree().get_first_node_in_group("player")
 @onready var sprite: Sprite2D = $Sprite2D
 
 
