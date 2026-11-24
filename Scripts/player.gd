@@ -32,12 +32,12 @@ signal crate_collected(total: int)
 @export var damage_effect_length: float = 0.1
 @export var damage_effect_color: Color = Color.FIREBRICK
 
-
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bullet_spawn_point: Node2D = $BulletSpawnPoint
 @onready var sprite: Sprite2D = $Sprite2D
 
-var pizza_scene: PackedScene = preload("res://Scenes/pizza_projectile.tscn")
+const BAGUETTE_BOMB = preload("uid://djhou7dt63nte")
+const PIZZA_PROJECTILE = preload("uid://fjvaj5uw6ird")
 
 var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
@@ -80,13 +80,15 @@ func melee_attack() -> void:
 
 	
 func ranged_attack() -> void:
-	var pizza: Area2D = pizza_scene.instantiate()
+	var pizza: Area2D = PIZZA_PROJECTILE.instantiate()
 	pizza.global_transform = bullet_spawn_point.global_transform
 	add_sibling(pizza)
 
 
 func bomber_attack() -> void:
-	pass
+	var baguette: RigidBody2D = BAGUETTE_BOMB.instantiate()
+	baguette.global_transform = bullet_spawn_point.global_transform
+	add_sibling(baguette)
 
 
 func _physics_process(delta: float) -> void:

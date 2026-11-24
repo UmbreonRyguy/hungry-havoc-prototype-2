@@ -4097,6 +4097,7 @@ tile_set = SubResource("TileSet_6kmws")
 unique_name_in_owner = true
 position = Vector2(176, 531)
 collision_mask = 15
+characterClass = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1331016377]
 position = Vector2(-1, 2)
