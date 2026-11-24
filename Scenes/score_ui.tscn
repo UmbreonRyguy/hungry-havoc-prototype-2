@@ -1,11 +1,15 @@
 [gd_scene format=3 uid="uid://dyyq26j411u7p"]
 
-[ext_resource type="Script" uid="uid://blu0c1estmjae" path="res://Scripts/score.gd" id="1_slsms"]
+[ext_resource type="Script" uid="uid://dmmxb8s8k7d2v" path="res://Scripts/score_ui.gd" id="1_slsms"]
+[ext_resource type="FontFile" uid="uid://cghfr65lwu3hj" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="2_7kmc4"]
 
-[node name="ScoreUI" type="CanvasLayer" unique_id=122604886]
+[node name="ScoreUI" type="CanvasLayer" unique_id=1327762412]
 script = ExtResource("1_slsms")
 
-[node name="ScoreText" type="RichTextLabel" parent="." unique_id=1139988300]
-offset_right = 60.0
+[node name="ScoreText" type="Label" parent="." unique_id=384000875]
+offset_top = 17.0
+offset_right = 70.0
 offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_7kmc4")
+theme_override_font_sizes/font_size = 10
 text = "Score: "

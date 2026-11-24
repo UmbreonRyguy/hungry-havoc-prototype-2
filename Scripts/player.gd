@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal crate_collected(total: int)
+signal set_score(total: int)
 
 @export var speed: float = 80
 ## Bullets per second
@@ -25,6 +26,7 @@ var input_vector: Vector2 = Vector2.ZERO
 var knockback_vector: Vector2 = Vector2.ZERO
 var firing_cooldown: float = 0
 var cratesCollected = 0
+#var score = 0
 
 var hearts_list : Array[TextureRect]
 
