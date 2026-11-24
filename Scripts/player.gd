@@ -52,6 +52,8 @@ var hearts_list : Array[TextureRect]
 
 
 func _ready() -> void:
+	characterClass = Global.characterClass
+	
 	var hearts_parent = $"../HealthUI/HBoxContainer"
 	for child in hearts_parent.get_children():
 		hearts_list.append(child)

@@ -4,6 +4,7 @@ signal score_changed(total: int)
 
 # Global score varible 
 var score: int = 0
+var characterClass: Player.CharacterClass
 
 
 func add_score(amount: int) -> void:
