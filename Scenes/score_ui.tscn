@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dyyq26j411u7p"]
+
+[ext_resource type="Script" uid="uid://blu0c1estmjae" path="res://Scripts/score.gd" id="1_slsms"]
+
+[node name="ScoreUI" type="CanvasLayer" unique_id=122604886]
+script = ExtResource("1_slsms")
+
+[node name="ScoreText" type="RichTextLabel" parent="." unique_id=1139988300]
+offset_right = 60.0
+offset_bottom = 40.0
+text = "Score: "
