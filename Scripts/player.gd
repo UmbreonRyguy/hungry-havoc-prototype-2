@@ -35,6 +35,9 @@ signal crate_collected(total: int)
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var bullet_spawn_point: Node2D = $BulletSpawnPoint
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var melee_attackbox: ExplosionAttackbox = $MeleeAttackbox
+@onready var melee_sprite: Sprite2D = $MeleeAttackbox/Sprite2D
+
 
 const BAGUETTE_BOMB = preload("uid://djhou7dt63nte")
 const PIZZA_PROJECTILE = preload("uid://fjvaj5uw6ird")
@@ -76,7 +79,9 @@ func _process_attack(delta: float) -> void:
 
 
 func melee_attack() -> void:
-	pass
+	melee_attackbox.explode()
+	melee_sprite.visible = true
+	get_tree().create_timer(0.1).timeout.connect(func(): melee_sprite.visible = false)
 
 	
 func ranged_attack() -> void:
