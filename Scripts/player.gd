@@ -147,11 +147,10 @@ func _on_damage_taken(_damage: int, health: int, area: Area2D) -> void:
 	knockback_vector = Vector2.from_angle(angle) * -knockback_strength
 	
 	if health <= 0:
-		#kill()
-		get_tree().change_scene_to_file("res://Scenes/title_screen.tscn")
+		kill()
 
 func kill() -> void:
-	get_tree().paused = true
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/title_screen.tscn")
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("crate"):

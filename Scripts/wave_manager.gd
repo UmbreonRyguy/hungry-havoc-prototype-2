@@ -35,7 +35,7 @@ func start_next_wave() -> void:
 			scene = ranged_enemy_scene
 			
 		var enemy: Enemy = scene.instantiate()
-		enemies_parent.add_child(enemy)
+		enemies_parent.add_child.call_deferred(enemy)
 		#pick random angle around player to spawn enemy at
 		var angle: float = randf() * TAU
 		enemy.global_position = player.global_position + Vector2.from_angle(angle) * spawn_distance
