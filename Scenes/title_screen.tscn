@@ -10,6 +10,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gxqj"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4gxqj"]
+
 [node name="TitleScreen" type="Control" unique_id=487392125]
 layout_mode = 3
 anchors_preset = 8
@@ -85,5 +87,20 @@ angry customers
 WASD = Move Space = Shoot"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="ItemList" type="ItemList" parent="." unique_id=879738116]
+layout_mode = 1
+offset_left = 567.0
+offset_top = 228.0
+offset_right = 639.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("4_twnyg")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4gxqj")
+allow_search = false
+item_count = 3
+item_0/text = "MELEE"
+item_1/text = "RANGED"
+item_2/text = "BOMBER"
 
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
